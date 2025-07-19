@@ -113,3 +113,58 @@ export const OptionalAndDefaultFields: Story = () => {
     />
   );
 };
+
+export const ComplexDiscriminatedUnionForm: Story = () => {
+  const schema = z.object({
+    name: z.string().min(1, 'Action name is required'),
+    description: z.string().optional(),
+    action: z.discriminatedUnion('type', [
+      z.object({
+        type: z.literal('webhook'),
+        url: z.string().url('Must be a valid URL'),
+        method: z.enum(['GET', 'POST', 'PUT', 'DELETE']),
+        headers: z.record(z.string()).optional(),
+        timeout: z.number().min(1000).max(30000).default(5000)
+      }),
+      z.object({
+        type: z.literal('email'),
+        recipient: z.string().email('Must be a valid email'),
+        subject: z.string().min(1, 'Subject is required'),
+        body: z.string().min(10, 'Body must be at least 10 characters'),
+        priority: z.enum(['low', 'normal', 'high']).default('normal'),
+        attachments: z.array(z.string()).optional()
+      }),
+      z.object({
+        type: z.literal('delay'),
+        duration: z.number().min(1, 'Duration must be positive'),
+        unit: z.enum(['seconds', 'minutes', 'hours', 'days']),
+        description: z.string().optional()
+      }),
+      z.object({
+        type: z.literal('database'),
+        query: z.string().min(1, 'Query is required'),
+        connection: z.string().min(1, 'Connection string is required'),
+        timeout: z.number().min(1000).default(10000),
+        retries: z.number().min(0).max(5).default(3)
+      })
+    ])
+  });
+
+  return (
+    <FormGenerator
+      schema={schema}
+      onSubmit={(data) => {
+        console.log('Complex union form:', data);
+        alert(`Action created: ${JSON.stringify(data, null, 2)}`);
+      }}
+      defaultValues={{
+        name: 'My Action',
+        action: {
+          type: 'webhook',
+          method: 'POST',
+          timeout: 5000
+        }
+      }}
+    />
+  );
+};
