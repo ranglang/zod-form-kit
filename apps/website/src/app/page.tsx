@@ -3,7 +3,7 @@
 import { z } from 'zod'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ZodForm, ZodFormExample } from '@zod-form-kit/radix'
+import { ZodForm, ZodFormExample } from 'zod-form-radix'
 
 const demoSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -172,13 +172,13 @@ export default function HomePage() {
               <div>
                 <h4 className="font-semibold mb-2">Install Radix UI integration:</h4>
                 <pre className="bg-muted p-3 rounded-lg text-sm">
-                  <code>npm install @zod-form-kit/radix</code>
+                  <code>npm install zod-form-radix</code>
                 </pre>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Basic usage:</h4>
                 <pre className="bg-muted p-3 rounded-lg text-sm overflow-auto">
-                  <code>{`import { ZodForm } from '@zod-form-kit/radix';
+                  <code>{`import { ZodForm } from 'zod-form-radix';
 import { z } from 'zod';
 
 const schema = z.object({

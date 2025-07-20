@@ -192,7 +192,7 @@ export function AdapterRegistrationExample() {
       <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
         <h3 className="font-semibold text-blue-900 mb-2">Integration Steps:</h3>
         <ol className="list-decimal list-inside space-y-2 text-blue-800">
-          <li>Install: <code className="bg-blue-100 px-1 rounded">npm install @zod-form-kit/radix</code></li>
+          <li>Install: <code className="bg-blue-100 px-1 rounded">npm install zod-form-radix</code></li>
           <li>Register: <code className="bg-blue-100 px-1 rounded">registerUIAdapter(radixThemesAdapter)</code></li>
           <li>Use: <code className="bg-blue-100 px-1 rounded">{'<FormGenerator schema={schema} />'}</code></li>
         </ol>
