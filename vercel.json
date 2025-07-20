@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm --filter zod-form-kit-website build",
+  "outputDirectory": "apps/website/.next",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
+}
