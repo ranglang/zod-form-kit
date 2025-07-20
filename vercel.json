@@ -1,5 +1,5 @@
 {
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm build",
+  "buildCommand": "cd ../.. && pnpm --filter zod-form-kit build && pnpm --filter zod-form-radix build && cd apps/website && pnpm build",
   "outputDirectory": ".next"
 }
