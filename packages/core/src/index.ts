@@ -60,6 +60,3 @@ export { DateField } from './components/fields/DateField';
 export { ArrayField } from './components/fields/ArrayField';
 export { ObjectField } from './components/fields/ObjectField';
 export { DiscriminatedUnionField } from './components/fields/DiscriminatedUnionField';
-
-// Export example adapters
-export { radixAdapter } from './adapters/radix-adapter';

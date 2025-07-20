@@ -1,7 +1,5 @@
 // React import not needed with new JSX transform
-import { Button } from '../button';
-import { Label } from '../label';
-import { cn } from '../../lib/utils';
+import { Flex, Text, Button, Card, TextField } from '@radix-ui/themes';
 
 // Define the props interface locally
 interface ArrayFieldRendererProps {
@@ -55,90 +53,92 @@ export function ArrayField({
   const canRemove = value.length > minLength;
 
   return (
-    <div className={cn("space-y-4", className)}>
-      <div className="flex items-center justify-between">
+    <Flex direction="column" gap="4" className={className}>
+      <Flex align="center" justify="between">
         {label && (
-          <Label>
+          <Text size="2" weight="medium">
             {label}
-            {required && <span className="text-red-500 ml-1">*</span>}
-          </Label>
+            {required && <Text color="red" ml="1">*</Text>}
+          </Text>
         )}
         <Button
           type="button"
           variant="outline"
-          size="sm"
+          size="2"
           onClick={addItem}
           disabled={!canAddMore}
         >
           Add Item
         </Button>
-      </div>
+      </Flex>
       
       {value.length === 0 ? (
-        <div className="text-sm text-muted-foreground p-4 border-2 border-dashed rounded-lg text-center">
-          No items added yet. Click "Add Item" to get started.
-        </div>
+        <Card>
+          <Text size="2" color="gray" align="center">
+            No items added yet. Click "Add Item" to get started.
+          </Text>
+        </Card>
       ) : (
-        <div className="space-y-3">
+        <Flex direction="column" gap="3">
           {value.map((item, index) => (
-            <div key={index} className="flex items-start space-x-2 p-3 border rounded-lg bg-card">
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium">Item {index + 1}</span>
+            <Card key={index}>
+              <Flex direction="column" gap="2">
+                <Flex align="center" justify="between">
+                  <Text size="2" weight="medium">Item {index + 1}</Text>
                   {canRemove && (
                     <Button
                       type="button"
-                      variant="destructive"
-                      size="sm"
+                      variant="soft"
+                      color="red"
+                      size="1"
                       onClick={() => removeItem(index)}
                     >
                       Remove
                     </Button>
                   )}
-                </div>
-                
+                </Flex>
+
                 {/* Simplified item rendering - would need FieldRenderer integration */}
-                <div className="space-y-2">
+                <Flex direction="column" gap="2">
                   {typeof item === 'string' ? (
-                    <input
-                      type="text"
+                    <TextField.Root
                       value={item}
                       onChange={(e) => updateItem(index, e.target.value)}
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background"
                       placeholder={`Enter ${itemSchema.type || 'value'}`}
+                      size="2"
                     />
                   ) : typeof item === 'number' ? (
-                    <input
+                    <TextField.Root
                       type="number"
-                      value={item}
+                      value={item.toString()}
                       onChange={(e) => updateItem(index, Number(e.target.value))}
-                      className="w-full px-3 py-2 border border-input rounded-md bg-background"
                       placeholder={`Enter ${itemSchema.type || 'number'}`}
+                      size="2"
                     />
                   ) : (
-                    <div className="text-sm text-muted-foreground">
+                    <Text size="2" color="gray">
                       Complex item type - {JSON.stringify(item)}
-                    </div>
+                    </Text>
                   )}
-                </div>
-                
+                </Flex>
+
                 {errors[`${path}.${index}`] && (
-                  <p className="text-sm text-red-500 mt-1">
+                  <Text size="1" color="red">
                     {errors[`${path}.${index}`]}
-                  </p>
+                  </Text>
                 )}
-              </div>
-            </div>
+              </Flex>
+            </Card>
           ))}
-        </div>
+        </Flex>
       )}
-      
+
       {error && (
-        <p className="text-sm text-red-500 mt-1">
+        <Text size="1" color="red">
           {error}
-        </p>
+        </Text>
       )}
-    </div>
+    </Flex>
   );
 }
 

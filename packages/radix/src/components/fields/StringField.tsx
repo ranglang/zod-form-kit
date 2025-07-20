@@ -1,7 +1,5 @@
 // React import not needed with new JSX transform
-import { Input } from '../input';
-import { Label } from '../label';
-import { cn } from '../../lib/utils';
+import { Flex, Text, TextField } from '@radix-ui/themes';
 
 // Define the props interface locally
 interface StringFieldRendererProps {
@@ -34,37 +32,39 @@ export function StringField({
   const inputType = getInputType(options.format);
   
   return (
-    <div className={cn("space-y-2", className)}>
+    <Flex direction="column" gap="2" className={className}>
       {label && (
-        <Label htmlFor={name}>
+        <Text as="label" htmlFor={name} size="2" weight="medium">
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
-        </Label>
+          {required && <Text color="red" ml="1">*</Text>}
+        </Text>
       )}
-      
-      <Input
+
+      <TextField.Root
         id={name}
         name={name}
-        type={inputType}
+        type={inputType as any}
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
-        className={cn(error && "border-red-500 focus-visible:ring-red-500")}
+        color={error ? "red" : undefined}
+        variant="surface"
+        size="2"
         required={required}
         readOnly={options.readonly}
         minLength={options.minLength}
         maxLength={options.maxLength}
         pattern={options.pattern?.source}
-        placeholder={options.format === 'email' ? 'Enter email address' : 
-                   options.format === 'url' ? 'Enter URL' : 
+        placeholder={options.format === 'email' ? 'Enter email address' :
+                   options.format === 'url' ? 'Enter URL' :
                    label ? `Enter ${label.toLowerCase()}` : undefined}
       />
-      
+
       {error && (
-        <p className="text-sm text-red-500 mt-1">
+        <Text size="1" color="red">
           {error}
-        </p>
+        </Text>
       )}
-    </div>
+    </Flex>
   );
 }
 

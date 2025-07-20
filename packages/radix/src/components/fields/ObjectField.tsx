@@ -1,6 +1,5 @@
 // React import not needed with new JSX transform
-import { Label } from '../label';
-import { cn } from '../../lib/utils';
+import { Flex, Text, Separator, Card } from '@radix-ui/themes';
 import { StringField } from './StringField';
 import { NumberField } from './NumberField';
 import { BooleanField } from './BooleanField';
@@ -68,54 +67,55 @@ export function ObjectField({
       default:
         // Fallback for unsupported types
         return (
-          <div className="text-sm text-muted-foreground p-2 border border-dashed rounded">
-            <div className="font-medium mb-1">Unsupported field type: {propertySchema.type}</div>
-            <div className="text-xs">Property: {propertyName}</div>
-            <div className="text-xs">Current value: {JSON.stringify(propertyValue)}</div>
-          </div>
+          <Card variant="surface">
+            <Flex direction="column" gap="1">
+              <Text size="2" weight="medium">Unsupported field type: {propertySchema.type}</Text>
+              <Text size="1" color="gray">Property: {propertyName}</Text>
+              <Text size="1" color="gray">Current value: {JSON.stringify(propertyValue)}</Text>
+            </Flex>
+          </Card>
         );
     }
   };
 
   return (
-    <div className={cn("space-y-4", className)}>
+    <Flex direction="column" gap="4" className={className}>
       {label && (
-        <div className="space-y-2">
-          <Label htmlFor={name}>
+        <Flex direction="column" gap="2">
+          <Text size="2" weight="medium">
             {label}
-            {required && <span className="text-red-500 ml-1">*</span>}
-          </Label>
-          <hr className="border-border" />
-        </div>
+            {required && <Text color="red" ml="1">*</Text>}
+          </Text>
+          <Separator size="4" />
+        </Flex>
       )}
-      
-      <div className={cn(
-        "space-y-4",
-        "pl-4 border-l-2 border-border"
-      )}>
-        {Object.entries(properties).map(([propertyName, propertySchema]) => {
-          // Skip if schema is undefined
-          if (!propertySchema) {
-            console.warn(`ObjectField: Schema for property '${propertyName}' is undefined`);
-            return null;
-          }
-          
-          const propertyValue = value[propertyName];
-          const propertyError = errors?.[`${path}.${propertyName}`] || errors?.[propertyName];
-          
-          return (
-            <div key={propertyName}>
-              {renderPropertyField(propertyName, propertySchema, propertyValue, propertyError)}
-            </div>
-          );
-        })}
-      </div>
-      
+
+      <Card variant="surface">
+        <Flex direction="column" gap="4">
+          {Object.entries(properties).map(([propertyName, propertySchema]) => {
+            // Skip if schema is undefined
+            if (!propertySchema) {
+              console.warn(`ObjectField: Schema for property '${propertyName}' is undefined`);
+              return null;
+            }
+
+            const propertyValue = value[propertyName];
+            const propertyError = errors?.[`${path}.${propertyName}`] || errors?.[propertyName];
+
+            return (
+              <Flex key={propertyName} direction="column">
+                {renderPropertyField(propertyName, propertySchema, propertyValue, propertyError)}
+              </Flex>
+            );
+          })}
+        </Flex>
+      </Card>
+
       {error && (
-        <p className="text-sm text-red-500 mt-2">
+        <Text size="1" color="red">
           {error}
-        </p>
+        </Text>
       )}
-    </div>
+    </Flex>
   );
 } 
