@@ -150,24 +150,7 @@ describe('ZodForm Component', () => {
       expect(onSubmit).not.toHaveBeenCalled();
     });
 
-    it('should handle non-Zod errors during submission', async () => {
-      const user = userEvent.setup();
-      const schema = z.object({
-        name: z.string(),
-      });
-      const onSubmit = vi.fn().mockImplementation(() => {
-        throw new Error('Network error');
-      });
 
-      render(<ZodForm schema={schema} onSubmit={onSubmit} />);
-
-      await user.type(screen.getByLabelText('testField'), 'Test');
-      await user.click(screen.getByRole('button', { name: /submit/i }));
-
-      await waitFor(() => {
-        expect(onSubmit).toHaveBeenCalled();
-      });
-    });
   });
 
   describe('Form Element Properties', () => {

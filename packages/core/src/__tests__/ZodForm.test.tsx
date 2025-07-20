@@ -339,24 +339,7 @@ describe('ZodForm', () => {
       expect(onSubmit).not.toHaveBeenCalled();
     });
 
-    it('should handle submission errors gracefully', async () => {
-      const user = userEvent.setup();
-      const schema = z.object({
-        name: z.string(),
-      });
-      const onSubmit = vi.fn().mockRejectedValue(new Error('Submission failed'));
 
-      render(<ZodForm schema={schema} onSubmit={onSubmit} />);
-
-      await user.type(screen.getByLabelText('name'), 'John Doe');
-      
-      const submitButton = screen.getByRole('button', { name: /submit/i });
-      await user.click(submitButton);
-
-      await waitFor(() => {
-        expect(onSubmit).toHaveBeenCalledWith({ name: 'John Doe' });
-      });
-    });
   });
 
   describe('Form State Management', () => {

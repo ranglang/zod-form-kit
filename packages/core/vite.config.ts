@@ -8,11 +8,12 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/test-setup.ts'],
-  },  build: {
+  },
+  build: {
     lib: {
       entry: 'src/index.ts',
       name: 'zod-form-kit',
-      fileName: (format) => `zod-form-kit.${format}.js`
+      fileName: (format) => format === 'es' ? 'index.js' : `zod-form-kit.${format}.js`
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'zod'],
