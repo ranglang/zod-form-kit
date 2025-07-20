@@ -41,7 +41,7 @@
     "@biomejs/biome": "^1.4.0",
     "@testing-library/jest-dom": "^6.1.0",
     "@testing-library/react": "^14.1.0",
-    "@zod-form-kit/core": "workspace:*",
+    "zod-form-kit": "workspace:*",
     "@testing-library/user-event": "^14.5.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
@@ -52,7 +52,7 @@
     "vitest": "^1.0.0"
   },
   "peerDependencies": {
-    "@zod-form-kit/core": "workspace:*",
+    "zod-form-kit": "workspace:*",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },

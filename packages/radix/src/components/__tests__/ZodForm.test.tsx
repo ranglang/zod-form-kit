@@ -5,7 +5,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { z } from 'zod';
 import { ZodForm } from '../ZodForm';
 
-describe.skip('ZodForm Integration Tests - CORE ISSUE: TanStack Form RangeError in @zod-form-kit/core', () => {
+describe.skip('ZodForm Integration Tests - CORE ISSUE: TanStack Form RangeError in zod-form-kit', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });

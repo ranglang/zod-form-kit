@@ -1,4 +1,4 @@
-import { ZodForm as CoreZodForm, type ZodFormProps, type ValidFormSchema } from '@zod-form-kit/core';
+import { ZodForm as CoreZodForm, type ZodFormProps, type ValidFormSchema } from 'zod-form-kit';
 import { radixThemesAdapter } from '../adapters/RadixThemesAdapter';
 
 /**

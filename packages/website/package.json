@@ -1,5 +1,5 @@
 {
-  "name": "@zod-form-kit/website",
+  "name": "zod-form-kit-website",
   "version": "1.0.0",
   "description": "Documentation and demo website for zod-form-kit",
   "private": true,
@@ -19,8 +19,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/themes": "^3.0.0",
-    "@zod-form-kit/core": "workspace:*",
-    "@zod-form-kit/radix": "workspace:*",
+    "zod-form-kit": "workspace:*",
+    "zod-form-radix": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.294.0",

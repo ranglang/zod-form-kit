@@ -5,7 +5,7 @@ import { StringField } from './StringField';
 import { NumberField } from './NumberField';
 import { BooleanField } from './BooleanField';
 import { DateField } from './DateField';
-import type { ObjectFieldRendererProps } from '@zod-form-kit/core';
+import type { ObjectFieldRendererProps } from 'zod-form-kit';
 
 export function ObjectField({
   name,

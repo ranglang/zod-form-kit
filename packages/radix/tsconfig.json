@@ -19,7 +19,7 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@zod-form-kit/core": ["../core/dist"]
+      "zod-form-kit": ["../core/dist"]
     }
   },
   "include": ["src"],

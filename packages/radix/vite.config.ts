@@ -20,7 +20,7 @@ export default defineConfig({
         'react', 
         'react-dom', 
         'zod',
-        '@zod-form-kit/core',
+        'zod-form-kit',
         '@radix-ui/themes',
         '@radix-ui/react-label',
         '@radix-ui/react-slot',
@@ -37,7 +37,7 @@ export default defineConfig({
           'react': 'React',
           'react-dom': 'ReactDOM',
           'zod': 'z',
-          '@zod-form-kit/core': 'ZodFormKit'
+          'zod-form-kit': 'ZodFormKit'
         }
       }
     }

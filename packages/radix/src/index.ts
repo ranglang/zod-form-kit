@@ -29,5 +29,5 @@ export { ZodFormExample } from './examples/ZodFormExample'
 // Export utilities
 export { cn } from './lib/utils'
 
-// Note: This package provides a comprehensive Radix UI adapter for @zod-form-kit/core
+// Note: This package provides a comprehensive Radix UI adapter for zod-form-kit
 // The radixThemesAdapter can be registered with the plugin system using registerUIAdapter() 

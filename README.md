@@ -13,7 +13,7 @@ packages/
 
 ## 📦 Packages
 
-### `@zod-form-kit/core`
+### `zod-form-kit`
 The core library that provides UI-agnostic form generation from Zod schemas. This package contains the main form generation logic and can be used with any UI framework.
 
 **Features:**
@@ -78,16 +78,16 @@ zod-form-kit follows the adapter pattern, separating concerns into distinct laye
 
 ```bash
 # Install the core package
-npm install @zod-form-kit/core
+npm install zod-form-kit
 
 # Install Radix UI integration
-npm install @zod-form-kit/radix
+npm install zod-form-radix
 ```
 
 ### Basic Usage
 
 ```tsx
-import { FormGenerator } from '@zod-form-kit/core'
+import { FormGenerator } from 'zod-form-kit'
 import { z } from 'zod'
 
 const schema = z.object({

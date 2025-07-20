@@ -8,8 +8,8 @@ import { DiscriminatedUnionField } from '../components/fields/DiscriminatedUnion
 import { EnumField } from '../components/fields/EnumField';
 
 // Import the actual UIAdapter interface and registration function
-import type { UIAdapter } from '@zod-form-kit/core';
-import { registerUIAdapter, registerFieldRenderer } from '@zod-form-kit/core';
+import type { UIAdapter } from 'zod-form-kit';
+import { registerUIAdapter, registerFieldRenderer } from 'zod-form-kit';
 
 // Enhanced Radix UI Adapter with modern styling and components
 export const radixThemesAdapter: UIAdapter = {

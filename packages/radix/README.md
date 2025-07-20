@@ -1,6 +1,6 @@
-# @zod-form-kit/radix
+# zod-form-radix
 
-A comprehensive Radix UI adapter for `@zod-form-kit/core` that provides modern, accessible form components using Radix UI primitives with beautiful styling.
+A comprehensive Radix UI adapter for `zod-form-kit` that provides modern, accessible form components using Radix UI primitives with beautiful styling.
 
 ## Features
 
@@ -14,11 +14,11 @@ A comprehensive Radix UI adapter for `@zod-form-kit/core` that provides modern, 
 ## Installation
 
 ```bash
-npm install @zod-form-kit/radix @zod-form-kit/core
+npm install zod-form-radix zod-form-kit
 # or
-pnpm add @zod-form-kit/radix @zod-form-kit/core
+pnpm add zod-form-radix zod-form-kit
 # or
-yarn add @zod-form-kit/radix @zod-form-kit/core
+yarn add zod-form-radix zod-form-kit
 ```
 
 ## Quick Start
@@ -29,7 +29,7 @@ The easiest way to get started is using the `ZodForm` component that comes with 
 
 ```tsx
 import { z } from 'zod';
-import { ZodForm } from '@zod-form-kit/radix';
+import { ZodForm } from 'zod-form-radix';
 
 const userSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -67,8 +67,8 @@ function MyForm() {
 The simplest way to use this package is to register the complete UI adapter:
 
 ```tsx
-import { registerUIAdapter } from '@zod-form-kit/core';
-import { radixThemesAdapter } from '@zod-form-kit/radix';
+import { registerUIAdapter } from 'zod-form-kit';
+import { radixThemesAdapter } from 'zod-form-radix';
 import { z } from 'zod';
 
 // Register the Radix UI adapter

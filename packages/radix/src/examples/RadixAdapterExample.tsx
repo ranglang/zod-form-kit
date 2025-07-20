@@ -177,7 +177,7 @@ export function AdapterRegistrationExample() {
     console.log('Available components:', Object.keys(radixThemesAdapter.components));
     
     // This would typically be:
-    // import { registerUIAdapter } from '@zod-form-kit/core';
+    // import { registerUIAdapter } from 'zod-form-kit';
     // registerUIAdapter(radixThemesAdapter);
   };
 
