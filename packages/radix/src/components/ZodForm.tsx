@@ -8,6 +8,5 @@ import { radixThemesAdapter } from '../adapters/RadixThemesAdapter';
  * providing a seamless experience for users who want to use Radix UI components.
  */
 export function ZodForm<T extends ValidFormSchema>(props: ZodFormProps<T>) {
-  console.log('DEBUG: Radix ZodForm called, passing radixThemesAdapter:', radixThemesAdapter);
   return <CoreZodForm registerUIAdapter={radixThemesAdapter} {...props} />;
-} 
+}

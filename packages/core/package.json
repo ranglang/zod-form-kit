@@ -1,5 +1,5 @@
 {
-  "name": "@zod-form-kit/core",
+  "name": "zod-form-kit",
   "version": "1.0.0",
   "description": "UI-agnostic form generation library based on Zod schemas with extensible adapter pattern",
   "main": "dist/index.js",
