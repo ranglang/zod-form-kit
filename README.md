@@ -77,11 +77,11 @@ zod-form-kit follows the adapter pattern, separating concerns into distinct laye
 ### Installation
 
 ```bash
-# Install the core package
-npm install zod-form-kit
+# Install both packages
+npm install zod-form-kit zod-form-radix
 
-# Install Radix UI integration
-npm install zod-form-radix
+# Or with the Radix adapter
+npm install zod-form-radix  # This will pull in zod-form-kit as peer dependency
 ```
 
 ### Basic Usage
