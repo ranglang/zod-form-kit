@@ -1,46 +1,37 @@
 {
-  "name": "react-zod-form-generator",
+  "name": "zod-form-kit-monorepo",
   "version": "1.0.0",
-  "description": "Automatic React form generation from Zod schemas",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "Monorepo for zod-form-kit with core library, website, and UI integrations",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "test": "vitest",
-    "test:ui": "vitest --ui",
-    "ladle": "ladle serve",
-    "ladle:build": "ladle build",
-    "lint": "biome check .",
-    "lint:fix": "biome check . --apply",
-    "format": "biome format . --write"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "zod": "^3.22.0"
+    "dev": "pnpm --filter website dev",
+    "build": "pnpm --recursive build",
+    "test": "pnpm --recursive test",
+    "lint": "pnpm --recursive lint",
+    "lint:fix": "pnpm --recursive lint:fix",
+    "format": "pnpm --recursive format",
+    "clean": "pnpm --recursive clean",
+    "ladle": "pnpm --filter core ladle",
+    "ladle:build": "pnpm --filter core ladle:build"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.4.0",
-    "@ladle/react": "^4.0.0",
-    "@testing-library/jest-dom": "^6.1.0",
-    "@testing-library/react": "^14.1.0",
-    "@testing-library/user-event": "^14.5.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "@vitejs/plugin-react": "^4.1.0",
-    "jsdom": "^23.0.0",
-    "typescript": "^5.2.0",
-    "vite": "^5.0.0",
-    "vitest": "^1.0.0"
+    "typescript": "^5.2.0"
   },
   "keywords": [
-    "react",
     "zod",
     "forms",
     "typescript",
     "validation",
-    "form-generator"
+    "form-generator",
+    "ui-agnostic",
+    "adapter-pattern",
+    "schema-driven",
+    "framework-agnostic",
+    "monorepo",
+    "radix-ui",
+    "shadcn",
+    "zod-form-kit"
   ],
   "author": "Your Name",
   "license": "MIT"

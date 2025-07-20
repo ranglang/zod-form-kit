@@ -1,1 +1,16 @@
 node_modules
+build
+dist
+packages/website/.next
+
+# TypeScript compiled files in packages/core
+packages/core/src/**/*.js
+packages/core/src/**/*.d.ts
+packages/core/src/**/*.js.map
+packages/core/src/**/*.d.ts.map
+
+# TypeScript compiled files in packages/radix
+packages/radix/src/**/*.js
+packages/radix/src/**/*.d.ts
+packages/radix/src/**/*.js.map
+packages/radix/src/**/*.d.ts.map
